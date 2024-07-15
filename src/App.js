@@ -4,6 +4,8 @@ import Navbar from './layout/Navbar.js';
 import Home from './pages/Home.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddUser from './users/AddUser.js';
+import EditUser from './users/EditUser.js';
+import { ViewUser } from './users/ViewUser.js';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/adduser" element={<AddUser />} />
+          <Route exact path="/edituser/:id" element={<EditUser />} />
+          <Route exact path="/viewuser/:id" element={<ViewUser />} />
         </Routes>
 
 
