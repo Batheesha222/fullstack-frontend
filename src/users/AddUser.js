@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function AddUser() {
 
@@ -20,9 +20,11 @@ export default function AddUser() {
   const onSubmit = async (e) => {
 
     e.preventDefault();
-    await axios.post("http://localhost:8080/user",user)
+    await axios.post("http://localhost:8080/user", user)
     navigate("/")
   }
+
+  
 
   return (
     <div className='container'>
@@ -36,14 +38,14 @@ export default function AddUser() {
             </div>
             <div className="mb-3">
               <label htmlFor="Username" className='form-label'>Username</label>
-              <input type={"text"} className="form-control" placeholder='Enter your Username' name="Username" value={username} onChange={(e) => onInputChange(e)} />
+              <input type={"text"} className="form-control" placeholder='Enter your Username' name="username" value={username} onChange={(e) => onInputChange(e)} />
             </div>
             <div className="mb-3">
               <label htmlFor="Email" className='form-label'>Email</label>
-              <input type={"text"} className="form-control" placeholder='Enter your Email' name="Email" value={email} onChange={(e) => onInputChange(e)} />
+              <input type={"text"} className="form-control" placeholder='Enter your Email' name="email" value={email} onChange={(e) => onInputChange(e)} />
             </div>
             <button type="submit" className='btn btn-outline-primary'>submit</button>
-            <button type="submit" className='btn btn-outline-danger mx-2'>cancel</button>
+            <Link className='btn btn-outline-danger mx-2' to="/">cancel</Link>
           </form>
 
         </div>
